@@ -1,1 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Good Shot Media — Your Brand. Our Shot.</title>
+
+  <meta
+    name="description"
+    content="Good Shot Media helps restaurants, cafés and cloud kitchens build a stronger digital presence across Google, social media, ads and creators."
+  />
+
+  <meta name="theme-color" content="#F28C28" />
+
+  <style>
+    :root {
+      --orange: #F28C28;
+      --orange-dark: #D96F12;
+      --beige: #F5EBDD;
+      --beige-dark: #E9D8C2;
+      --cream: #FFF9F2;
+      --white: #FFFFFF;
+      --black: #171412;
+      --muted: #756C64;
+      --line: rgba(23, 20, 18, 0.12);
+      --shadow: 0 18px 50px rgba(23, 20, 18, 0.08);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* ---------------- NAVBAR ---------------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 249, 242, 0.92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      font-size: 19px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--orange);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 17px;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(242, 140, 40, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: #4f4842;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange-dark);
+    }
+
+    .nav-cta {
+      background: var(--black);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 999px;
+    }
+
+    .nav-cta:hover {
+      background: var(--orange);
+      color: white !important;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 0 90px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: rgba(242, 140, 40, 0.10);
+      right: -180px;
+      top: 100px;
+      filter: blur(4px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 70px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 7vw, 94px);
+      line-height: 0.91;
+      letter-spacing: -5px;
+      font-weight: 950;
+      max-width: 760px;
+    }
+
+    .hero h1 span {
+      color: var(--orange);
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 23px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 12px 25px rgba(242, 140, 40, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: var(--orange-dark);
+    }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .phone-card {
+      background: var(--black);
+      border-radius: 38px;
+      padding: 14px;
+      max-width: 390px;
+      margin-left: auto;
+      transform: rotate(3deg);
+      box-shadow: 0 30px 80px rgba(23, 20, 18, 0.22);
+    }
+
+    .phone-screen {
+      border-radius: 28px;
+      background: var(--beige);
+      min-height: 560px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .food-shape {
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: var(--orange);
+      margin: 35px auto;
+      position: relative;
+      box-shadow:
+        inset 0 0 0 22px rgba(255,255,255,0.18),
+        0 20px 50px rgba(242,140,40,0.25);
+    }
+
+    .food-shape::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 8px dotted rgba(255,255,255,0.65);
+      top: 55px;
+      left: 55px;
+    }
+
+    .phone-title {
+      font-size: 40px;
+      line-height: 0.95;
+      font-weight: 950;
+      letter-spacing: -2px;
+    }
+
+    .phone-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 15px;
+      font-size: 12px;
+    }
+
+    .mini-tag {
+      background: var(--black);
+      color: white;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: white;
+      border-radius: 18px;
+      padding: 17px 19px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .floating-card.one {
+      left: -35px;
+      bottom: 80px;
+    }
+
+    .floating-card.two {
+      right: -25px;
+      top: 65px;
+    }
+
+    .floating-number {
+      color: var(--orange);
+      font-size: 24px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ---------------- INTRO STRIP ---------------- */
+
+    .strip {
+      background: var(--black);
+      color: white;
+      padding: 21px 0;
+      overflow: hidden;
+    }
+
+    .strip-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--orange);
+      border-radius: 50%;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--orange-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      font-weight: 950;
+      max-width: 800px;
+    }
+
+    .section-title span {
+      color: var(--orange);
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.75;
+      margin-top: 22px;
+    }
+
+    /* ---------------- DIGITAL STOREFRONT ---------------- */
+
+    .storefront {
+      background: var(--beige);
+    }
+
+    .storefront-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .storefront-card {
+      background: var(--white);
+      border-radius: 30px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .storefront-card h3 {
+      font-size: 28px;
+      letter-spacing: -1px;
+      margin-bottom: 22px;
+    }
+
+    .storefront-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .storefront-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-weight: 750;
+    }
+
+    .storefront-item:last-child {
+      border-bottom: none;
+    }
+
+    .arrow {
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    /* ---------------- PROBLEM ---------------- */
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .big-statement {
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 0.94;
+      letter-spacing: -4px;
+      font-weight: 950;
+    }
+
+    .big-statement span {
+      color: var(--orange);
+    }
+
+    .pain-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .pain {
+      background: white;
+      border: 1px solid var(--line);
+      padding: 21px 23px;
+      border-radius: 18px;
+      font-weight: 650;
+      transition: 0.25s ease;
+    }
+
+    .pain:hover {
+      transform: translateX(5px);
+      border-color: rgba(242, 140, 40, 0.4);
+    }
+
+    /* ---------------- SYSTEM ---------------- */
+
+    .system {
+      background: var(--black);
+      color: white;
+    }
+
+    .system .section-label {
+      color: var(--orange);
+    }
+
+    .system .section-intro {
+      color: #bdb6b0;
+    }
+
+    .system-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 55px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .flow-card {
+      padding: 35px 25px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .flow-card:last-child {
+      border-right: none;
+    }
+
+    .flow-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .flow-card h3 {
+      font-size: 27px;
+      margin-bottom: 12px;
+    }
+
+    .flow-card p {
+      color: #aaa39e;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .flow-arrow {
+      color: var(--orange);
+      font-size: 25px;
+      margin-top: 20px;
+    }
+
+    /* ---------------- SERVICES ---------------- */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 55px;
+    }
+
+    .service {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 34px;
+      min-height: 285px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: rgba(242,140,40,0.35);
+    }
+
+    .service::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(242,140,40,0.07);
+      right: -50px;
+      bottom: -50px;
+    }
+
+    .service-number {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .service h3 {
+      font-size: 29px;
+      margin-top: 34px;
+      letter-spacing: -1px;
+    }
+
+    .service p {
+      color: var(--muted);
+      margin-top: 12px;
+      line-height: 1.7;
+      font-size: 14px;
+      max-width: 450px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      background: var(--beige);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    /* ---------------- 15 SECOND TEST ---------------- */
+
+    .test {
+      background: var(--orange);
+      color: white;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .test .section-label {
+      color: white;
+    }
+
+    .test h2 {
+      font-size: clamp(52px, 7vw, 90px);
+      line-height: 0.88;
+      letter-spacing: -5px;
+      font-weight: 950;
+    }
+
+    .test-copy {
+      font-size: 18px;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .test-questions {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+    }
+
+    .question {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 13px;
+      padding: 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* ---------------- PROCESS ---------------- */
+
+    .process {
+      background: var(--beige);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 55px;
+    }
+
+    .process-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      min-height: 230px;
+    }
+
+    .process-card .num {
+      color: var(--orange);
+      font-weight: 950;
+      font-size: 14px;
+    }
+
+    .process-card h3 {
+      margin-top: 50px;
+      font-size: 23px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    /* ---------------- PACKAGES ---------------- */
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 50px;
+      max-width: 850px;
+    }
+
+    .package {
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 34px;
+      background: white;
+    }
+
+    .package.featured {
+      background: var(--black);
+      color: white;
+      border-color: var(--black);
+    }
+
+    .package-name {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .package h3 {
+      font-size: 34px;
+      margin-top: 13px;
+    }
+
+    .package p {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .featured p {
+      color: #aaa39e;
+    }
+
+    .package-note {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .featured .package-note {
+      color: #aaa39e;
+    }
+
+    /* ---------------- PORTFOLIO ---------------- */
+
+    .portfolio {
+      background: var(--white);
+    }
+
+    .portfolio-box {
+      margin-top: 50px;
+      border: 1px dashed rgba(23,20,18,0.25);
+      border-radius: 28px;
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 40px;
+      background: var(--cream);
+    }
+
+    .portfolio-box h3 {
+      font-size: 29px;
+    }
+
+    .portfolio-box p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 12px auto 0;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-copy {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .about-highlight {
+      background: var(--beige);
+      border-radius: 30px;
+      padding: 45px;
+    }
+
+    .about-highlight h3 {
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .about-highlight span {
+      color: var(--orange);
+    }
+
+    /* ---------------- CTA ---------------- */
+
+    .cta {
+      background: var(--black);
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(242,140,40,0.12);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(10px);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta .section-label {
+      color: var(--orange);
+    }
+
+    .cta h2 {
+      font-size: clamp(55px, 8vw, 105px);
+      line-height: 0.88;
+      letter-spacing: -6px;
+      font-weight: 950;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta h2 span {
+      color: var(--orange);
+    }
+
+    .cta p {
+      color: #bdb6b0;
+      margin: 25px auto 32px;
+      max-width: 550px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      background: var(--black);
+      color: white;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 30px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-copy {
+      color: #918a84;
+      font-size: 12px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    /* ---------------- REVEAL ---------------- */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 900px) {
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero-grid,
+      .storefront-grid,
+      .problem-grid,
+      .test-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .phone-card {
+        margin: 0 auto;
+        transform: rotate(0);
+      }
+
+      .floating-card.one {
+        left: 0;
+      }
+
+      .floating-card.two {
+        right: 0;
+      }
+
+      .system-flow {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .flow-card:nth-child(2) {
+        border-right: none;
+      }
+
+      .flow-card:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .services-grid,
+      .packages {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .test h2 {
+        letter-spacing: -3px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero {
+        padding: 115px 0 70px;
+      }
+
+      .hero h1 {
+        font-size: 57px;
+        letter-spacing: -3px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .phone-screen {
+        min-height: 480px;
+      }
+
+      .phone-title {
+        font-size: 33px;
+      }
+
+      .floating-card {
+        transform: scale(0.85);
+      }
+
+      .floating-card.one {
+        left: -12px;
+      }
+
+      .floating-card.two {
+        right: -12px;
+      }
+
+      .section-title {
+        letter-spacing: -2px;
+      }
+
+      .system-flow,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-card {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .flow-card:last-child {
+        border-bottom: none;
+      }
+
+      .process-card {
+        min-height: auto;
+      }
+
+      .process-card h3 {
+        margin-top: 30px;
+      }
+
+      .test-questions {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 90px 0;
+      }
+
+      .cta h2 {
+        font-size: 60px;
+        letter-spacing: -4px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav id="navbar">
+    <div class="container nav-inner">
+
+      <a href="#top" class="brand">
+        <span class="brand-mark">G</span>
+        GOOD SHOT MEDIA
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Let's Talk</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+            Restaurant-focused digital marketing
+          </div>
+
+          <h1>
+            YOUR BRAND.<br />
+            OUR <span>SHOT.</span>
+          </h1>
+
+          <p class="hero-copy">
+            Good Shot Media helps restaurants, cafés and cloud kitchens
+            build a stronger digital presence — from Google discovery
+            to social media, advertising and creators.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">
+              Explore Services →
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Take The Shot
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual reveal">
+
+          <div class="phone-card">
+
+            <div class="phone-screen">
+
+              <div class="phone-top">
+                <span>GOOD SHOT</span>
+                <span>VIRAR — VASAI</span>
+              </div>
+
+              <div class="food-shape"></div>
+
+              <div class="phone-title">
+                MAKE THEM<br />
+                STOP.<br />
+                LOOK.<br />
+                CHOOSE.
+              </div>
+
+              <div class="phone-bottom">
+                <span>
+                  Your restaurant<br />
+                  has another storefront.
+                </span>
+
+                <span class="mini-tag">
+                  DIGITAL
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="floating-card one">
+            <span class="floating-number">01</span>
+            Google Presence
+          </div>
+
+          <div class="floating-card two">
+            <span class="floating-number">04</span>
+            Creator Visibility
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= STRIP ================= -->
+
+    <div class="strip">
+      <div class="container strip-inner">
+        <span>Google</span>
+        <span class="dot"></span>
+        <span>Social</span>
+        <span class="dot"></span>
+        <span>Ads</span>
+        <span class="dot"></span>
+        <span>Creators</span>
+        <span class="dot"></span>
+        <span>One Strategy</span>
+      </div>
+    </div>
+
+
+    <!-- ================= DIGITAL STOREFRONT ================= -->
+
+    <section class="storefront">
+      <div class="container storefront-grid">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            The Digital Storefront
+          </div>
+
+          <h2 class="section-title">
+            Your restaurant has <span>two storefronts.</span>
+          </h2>
+
+          <p class="section-intro">
+            One is on the street. The other is on your customer's phone.
+            Good Shot Media helps you build the second one — so your
+            digital presence feels as considered as the place itself.
+          </p>
+
+        </div>
+
+
+        <div class="storefront-card reveal">
+
+          <h3>
+            What people see before they visit.
+          </h3>
+
+          <div class="storefront-list">
+
+            <div class="storefront-item">
+              <span>Google presence</span>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="storefront-item">
+              <span>Reviews & reputation</span>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="storefront-item">
+              <span>Instagram & content</span>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="storefront-item">
+              <span>Meta advertising</span>
+              <span class="arrow">→</span>
+            </div>
+
+            <div class="storefront-item">
+              <span>Creator visibility</span>
+              <span class="arrow">→</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= PROBLEM ================= -->
+
+    <section>
+      <div class="container problem-grid">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            The Problem
+          </div>
+
+          <div class="big-statement">
+            WE DON'T<br />
+            SELL <span>POSTS.</span><br />
+            WE BUILD<br />
+            PRESENCE.
+          </div>
+
+        </div>
+
+
+        <div class="reveal">
+
+          <p class="section-intro" style="margin-top:0; margin-bottom:28px;">
+            Great food is only part of the equation. Your digital presence
+            has to help people discover you, remember you, trust you —
+            and ultimately give them a reason to choose you.
+          </p>
+
+          <div class="pain-list">
+
+            <div class="pain">
+              “My food is good, but people don't know us.”
+            </div>
+
+            <div class="pain">
+              “We have Instagram, but we're not consistent.”
+            </div>
+
+            <div class="pain">
+              “Our Google profile exists, but we don't really manage it.”
+            </div>
+
+            <div class="pain">
+              “We've run ads, but we don't know what actually worked.”
+            </div>
+
+            <div class="pain">
+              “We paid influencers, but couldn't understand the impact.”
+            </div>
+
+            <div class="pain">
+              “We're getting likes — but are we getting customers?”
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SYSTEM ================= -->
+
+    <section class="system">
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            One connected system
+          </div>
+
+          <h2 class="section-title">
+            GOOGLE → SOCIAL → ADS → <span>CREATORS</span>
+          </h2>
+
+          <p class="section-intro">
+            Your marketing shouldn't operate in silos. Each touchpoint
+            should strengthen the next one.
+          </p>
+
+        </div>
+
+
+        <div class="system-flow reveal">
+
+          <div class="flow-card">
+            <div class="flow-number">01</div>
+            <h3>Google</h3>
+            <p>
+              Help people discover the restaurant when they're actively
+              searching nearby.
+            </p>
+            <div class="flow-arrow">→</div>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-number">02</div>
+            <h3>Social</h3>
+            <p>
+              Give people a reason to notice, remember and engage with
+              the brand.
+            </p>
+            <div class="flow-arrow">→</div>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-number">03</div>
+            <h3>Ads</h3>
+            <p>
+              Put the right message in front of relevant audiences with
+              structured Meta campaigns.
+            </p>
+            <div class="flow-arrow">→</div>
+          </div>
+
+          <div class="flow-card">
+            <div class="flow-number">04</div>
+            <h3>Creators</h3>
+            <p>
+              Build local awareness and conversation through relevant
+              influencer collaborations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services">
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            What We Do
+          </div>
+
+          <h2 class="section-title">
+            Four touchpoints.<br />
+            <span>One strategy.</span>
+          </h2>
+
+          <p class="section-intro">
+            Focused digital marketing for restaurants, cafés and cloud
+            kitchens in Virar–Vasai.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- SERVICE 01 -->
+
+          <div class="service reveal">
+
+            <div class="service-number">
+              01 / GOOGLE
+            </div>
+
+            <h3>
+              Google Business Profile
+            </h3>
+
+            <p>
+              Strengthen the place customers discover when they're
+              searching for where to eat.
+            </p>
+
+            <div class="service-tags">
+              <span class="tag">Setup & Optimisation</span>
+              <span class="tag">Photos & Videos</span>
+              <span class="tag">Google Posts</span>
+              <span class="tag">Reviews</span>
+              <span class="tag">Local Visibility</span>
+            </div>
+
+          </div>
+
+
+          <!-- SERVICE 02 -->
+
+          <div class="service reveal">
+
+            <div class="service-number">
+              02 / SOCIAL
+            </div>
+
+            <h3>
+              Social Media Management
+            </h3>
+
+            <p>
+              Build a consistent social presence with strategy,
+              content and ongoing management across Instagram and Facebook.
+            </p>
+
+            <div class="service-tags">
+              <span class="tag">Content Strategy</span>
+              <span class="tag">Reels</span>
+              <span class="tag">Stories</span>
+              <span class="tag">Creatives</span>
+              <span class="tag">Analytics</span>
+            </div>
+
+          </div>
+
+
+          <!-- SERVICE 03 -->
+
+          <div class="service reveal">
+
+            <div class="service-number">
+              03 / PERFORMANCE
+            </div>
+
+            <h3>
+              Meta Ads
+            </h3>
+
+            <p>
+              Structured Meta advertising built around the client's
+              objective — from campaign setup to optimisation and reporting.
+            </p>
+
+            <div class="service-tags">
+              <span class="tag">Campaign Setup</span>
+              <span class="tag">Targeting</span>
+              <span class="tag">Ad Creatives</span>
+              <span class="tag">Optimisation</span>
+              <span class="tag">Reporting</span>
+            </div>
+
+          </div>
+
+
+          <!-- SERVICE 04 -->
+
+          <div class="service reveal">
+
+            <div class="service-number">
+              04 / CREATORS
+            </div>
+
+            <h3>
+              Influencer Marketing
+            </h3>
+
+            <p>
+              Connect the brand with relevant micro, macro and local
+              creators — with planning, coordination and execution.
+            </p>
+
+            <div class="service-tags">
+              <span class="tag">Creator Discovery</span>
+              <span class="tag">Local Influencers</span>
+              <span class="tag">Campaign Planning</span>
+              <span class="tag">Coordination</span>
+              <span class="tag">Reporting</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 15 SECOND TEST ================= -->
+
+    <section class="test">
+      <div class="container test-grid">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            A Good Shot Concept
+          </div>
+
+          <h2>
+            THE<br />
+            15-SECOND<br />
+            TEST.
+          </h2>
+
+        </div>
+
+
+        <div class="reveal">
+
+          <p class="test-copy">
+            When someone discovers your restaurant online, can they quickly
+            understand what you offer, see why the food looks worth trying,
+            know where you are, and feel confident enough to choose you?
+          </p>
+
+          <div class="test-questions">
+
+            <div class="question">
+              What do you offer?
+            </div>
+
+            <div class="question">
+              Does the food look appealing?
+            </div>
+
+            <div class="question">
+              Is the brand active?
+            </div>
+
+            <div class="question">
+              Are people talking about you?
+            </div>
+
+            <div class="question">
+              Where are you?
+            </div>
+
+            <div class="question">
+              Is the brand trustworthy?
+            </div>
+
+            <div class="question">
+              Is there a reason to visit?
+            </div>
+
+            <div class="question">
+              Does your presence make them stop?
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= PROCESS ================= -->
+
+    <section class="process" id="process">
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            How We Work
+          </div>
+
+          <h2 class="section-title">
+            Understand.<br />
+            Build. Activate. <span>Optimise.</span>
+          </h2>
+
+          <p class="section-intro">
+            A simple working framework to build the foundation first,
+            activate the right channels, and continuously improve.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+          <div class="process-card reveal">
+            <div class="num">01</div>
+            <h3>Understand</h3>
+            <p>
+              Understand the restaurant, audience, location, offers
+              and goals.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="num">02</div>
+            <h3>Build</h3>
+            <p>
+              Strengthen Google presence, social presence and the
+              content foundation.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="num">03</div>
+            <h3>Activate</h3>
+            <p>
+              Execute social, advertising and influencer activity
+              where appropriate.
+            </p>
+          </div>
+
+          <div class="process-card reveal">
+            <div class="num">04</div>
+            <h3>Optimise</h3>
+            <p>
+              Review performance, identify what worked and plan
+              the next move.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= PACKAGES ================= -->
+
+    <section>
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            Flexible Packages
+          </div>
+
+          <h2 class="section-title">
+            Start where your<br />
+            business <span>needs it.</span>
+          </h2>
+
+          <p class="section-intro">
+            Two starting points designed to keep the approach practical
+            and flexible. Final scope can be tailored to the business.
+          </p>
+
+        </div>
+
+
+        <div class="packages">
+
+          <div class="package reveal">
+
+            <div class="package-name">
+              Essential
+            </div>
+
+            <h3>Basic</h3>
+
+            <p>
+              An essential starting point for businesses that want to
+              strengthen their digital foundation.
+            </p>
+
+            <div class="package-note">
+              Scope discussed according to business requirements.
+            </div>
+
+          </div>
+
+
+          <div class="package featured reveal">
+
+            <div class="package-name">
+              Comprehensive
+            </div>
+
+            <h3>Selective</h3>
+
+            <p>
+              A more comprehensive option with broader services,
+              support and execution.
+            </p>
+
+            <div class="package-note">
+              Scope discussed according to business requirements.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= PORTFOLIO ================= -->
+
+    <section class="portfolio">
+      <div class="container">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            Selected Work
+          </div>
+
+          <h2 class="section-title">
+            The work will<br />
+            <span>speak here.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="portfolio-box reveal">
+
+          <div>
+            <h3>
+              Previous experience across digital content
+              and marketing projects.
+            </h3>
+
+            <p>
+              Selected work, screenshots, campaign creatives and
+              relevant projects will be added here as the portfolio grows.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+      <div class="container about-grid">
+
+        <div class="reveal">
+
+          <div class="section-label">
+            About Good Shot Media
+          </div>
+
+          <h2 class="section-title">
+            Small by design.<br />
+            Focused by <span>choice.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="reveal">
+
+          <p class="about-copy">
+            Good Shot Media is a focused digital marketing agency built
+            around practical digital growth for local businesses.
+            Starting with restaurants, cafés and cloud kitchens in
+            Virar–Vasai, the aim is simple: bring different digital
+            touchpoints together instead of treating them as separate tasks.
+          </p>
+
+          <div class="about-highlight" style="margin-top:30px;">
+
+            <h3>
+              Followers are nice.<br />
+              <span>Customers are better.</span>
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta" id="contact">
+      <div class="container cta-inner reveal">
+
+        <div class="section-label">
+          Ready when you are
+        </div>
+
+        <h2>
+          ONE BRAND.<br />
+          ONE STRATEGY.<br />
+          <span>ONE SHOT.</span>
+        </h2>
+
+        <p>
+          Your restaurant deserves more than a social media page.
+          Let's build a digital presence that works together.
+        </p>
+
+        <!-- Add your real WhatsApp / phone / email here later -->
+
+        <a href="#" class="btn btn-primary" id="contactButton">
+          TAKE THE SHOT →
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div class="footer-copy">
+        © 2026 Good Shot Media. All rights reserved.
+      </div>
+
+      <div class="footer-tagline">
+        YOUR BRAND. OUR SHOT.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* Navbar background on scroll */
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+
+    /* Scroll reveal */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+
+    /* Prevent empty contact button from jumping */
+
+    document.getElementById("contactButton").addEventListener("click", (event) => {
+      event.preventDefault();
+      alert(
+        "Contact details will be added here once your WhatsApp, phone or email is ready."
+      );
+    });
+
+  </script>
+
+</body>
+</html>
