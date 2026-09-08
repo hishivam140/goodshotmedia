@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect With Us — Good Shot Media</title>
+<meta name="description" content="Contact Good Shot Media by phone, WhatsApp or email.">
+<meta name="theme-color" content="#10264A">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+<header class="site-header" id="siteHeader">
+  <div class="container nav">
+    <a href="index.html" aria-label="Good Shot Media home"><img src="logo.jpg" class="logo" alt="Good Shot Media"></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="services.html" data-page="services">Services</a>
+      <a href="about.html" data-page="about">About Us</a>
+      <a href="contact.html" data-page="contact" class="nav-cta">Connect With Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Connect With Us</div>
+    <h1>Let's talk about your <span>brand.</span></h1>
+    <p>Tell us a little about your business and what you want to improve. We'll take it from there.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <small>Call / WhatsApp</small>
+          <a href="tel:+919222335248">+91 92223 35248</a>
+        </div>
+        <div class="contact-item">
+          <small>Email</small>
+          <a href="mailto:goodshotmedia.in@gmail.com">goodshotmedia.in@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <small>Response</small>
+          <p style="color:var(--muted);max-width:420px">For a faster conversation, you can call or WhatsApp us directly.</p>
+          <a class="whatsapp" href="https://wa.me/919222335248?text=Hi%20Good%20Shot%20Media%2C%20I%27d%20like%20to%20discuss%20marketing%20for%20my%20business." target="_blank" rel="noopener">Open WhatsApp →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Send an enquiry.</h2>
+      <form id="enquiryForm">
+        <div class="form-grid">
+          <label>Your Name<input id="name" required placeholder="Your name"></label>
+          <label>Business Name<input id="business" required placeholder="Business name"></label>
+          <label>Phone Number<input id="phone" required placeholder="+91"></label>
+          <label>What do you need?<textarea id="message" required placeholder="Tell us briefly about your requirement"></textarea></label>
+          <button class="btn" type="submit">Send Enquiry →</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('enquiryForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const business=document.getElementById('business').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const message=document.getElementById('message').value.trim();
+  const subject=encodeURIComponent('New Enquiry — Good Shot Media');
+  const body=encodeURIComponent(
+    'Name: '+name+'\nBusiness: '+business+'\nPhone: '+phone+'\nRequirement: '+message
+  );
+  window.location.href='mailto:goodshotmedia.in@gmail.com?subject='+subject+'&body='+body;
+});
+</script>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <img src="logo.jpg" class="footer-logo" alt="Good Shot Media">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Good Shot Media. All rights reserved.</span>
+      <span>YOUR BRAND. OUR SHOT.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header=document.getElementById('siteHeader');
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>12));
+menuBtn?.addEventListener('click',()=>navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  const page=a.dataset.page;
+  if(page && document.body.dataset.page===page) a.classList.add('active');
+  a.addEventListener('click',()=>navLinks.classList.remove('open'));
+});
+</script>
+
+</body>
+</html>
